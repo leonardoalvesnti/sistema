@@ -1,0 +1,44 @@
+﻿
+
+
+@model List<Model.Entity.Produto>
+@{
+    ViewBag.Title = "Lista de Refeições";
+}
+
+
+<h2 class="text-center text-success">Produtos | Lista de Refeições </h2>
+<div class="well well-sm"><a class="btn btn-primary" href="~/Produto/Create">Novo</a>
+<a style="float:right;" class="btn btn-success" href="~/Relatorios/frmRelatorioProduto.aspx" target="_blank">Imprimir Relatório</a>
+    </div>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr class="bg-primary">
+            <th>Código</th>
+            <th>Descrição</th>
+            <th>Preço Unitário</th>
+            <th>Tp Refeição</th>
+            <th colspan="3">Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var objProduto in Model)
+        {
+            <tr>
+                <td>@objProduto.IdProduto</td>
+                <td>@objProduto.Nome</td>
+                <td>@objProduto.PrecoUnitario</td>
+                <td>@objProduto.Categoria</td>
+                <td><a class="btn btn-success" href="~/Produto/Find/@objProduto.IdProduto"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                <td><a class="btn btn-info" href="~/Produto/Update/@objProduto.IdProduto"><span class="fa fa-edit"></span></a></td>
+                <td><a class="btn btn-danger" href="~/Produto/Delete/@objProduto.IdProduto"><span class="fa fa-remove"></span></a></td>
+                
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
